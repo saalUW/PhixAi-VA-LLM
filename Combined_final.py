@@ -20,8 +20,9 @@ import time
 
 ### Environment Setup ###
 
+# There is a consistent warning that floods the progress bar, and
+# CUDA availability decreases runtime significantly 
 warnings.filterwarnings("ignore")
-
 device = 0 if torch.cuda.is_available() else -1
 print("CUDA availability:", torch.cuda.is_available())
 
@@ -428,8 +429,6 @@ def CSMF():
 
         # Save the plot as a PDF file
         plt.savefig('CSMF_plot.pdf')
-
-        # Display the plot
         plt.show()
 
     except FileNotFoundError:
